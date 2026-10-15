@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apuoyo SDA Church - Ingia (Login)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{
+  background:#f7f8fc;
+  color:#222;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+/* Header Styling */
+header{
+  background:#0b2e6e;
+  color:#fff;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header h1{font-size:18px} 
+header span{color:#ffcc00}
+nav a{color:#fff;margin-left:12px;text-decoration:none;font-size:14px}
+nav a:hover{color:#ffcc00}
+
+/* Login Container */
+.login-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+  flex-grow:1;
+}
+
+.login-card{
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
+  width:100%;
+  max-width:420px;
+  border-top:5px solid #ffcc00;
+}
+
+.login-header{
+  text-align:center;
+  margin-bottom:24px;
+}
+.login-header h2{
+  color:#0b2e6e;
+  font-size:22px;
+  margin-bottom:6px;
+}
+.login-header p{
+  color:#666;
+  font-size:14px;
+}
+
+/* Form Elements */
+.form-group{
+  margin-bottom:16px;
+}
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:#0b2e6e;
+  margin-bottom:6px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+  outline:none;
+  transition:border-color 0.2s;
+}
+input:focus{
+  border-color:#0b2e6e;
+}
+
+.form-actions{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  margin-bottom:20px;
+}
+.form-actions a{
+  color:#0b2e6e;
+  text-decoration:none;
+  font-weight:600;
+}
+.form-actions a:hover{
+  text-decoration:underline;
+}
+
+/* Buttons */
+.btn{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  text-align:center;
+  text-decoration:none;
+  display:block;
+  transition:background 0.2s;
+}
+.btn-yellow{
+  background:#ffcc00;
+  color:#0b2e6e;
+}
+.btn-yellow:hover{
+  background:#e6b800;
+}
+
+.signup-link{
+  text-align:center;
+  margin-top:20px;
+  font-size:13px;
+  color:#666;
+}
+.signup-link a{
+  color:#0b2e6e;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* Footer Styling */
+footer{
+  background:#0b2e6e;
+  color:#cdd6f0;
+  padding:20px;
+  text-align:center;
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>APUOYO <span>SDA</span> CHURCH</h1>
+  <nav>
+    <a href="index.html">Nyumbani (Home)</a>
+  </nav>
+</header>
+
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Ingia Katika Akaunti</h2>
+      <p>Apuoyo SDA Church Member Portal</p>
+    </div>
+
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label for="user_id">Barua Pepe au Namba ya Simu</label>
+        <input type="text" id="user_id" name="user_id" placeholder="Mfano: 0712345678" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Nenosiri (Password)</label>
+        <input type="password" id="password" name="password" placeholder="Ingiza nenosiri lako" required>
+      </div>
+
+      <div class="form-actions">
+        <label style="font-weight:normal; cursor:pointer;">
+          <input type="checkbox" name="remember"> Nikumbuke
+        </label>
+        <a href="#">Umesahau nenosiri?</a>
+      </div>
+
+      <button type="submit" class="btn btn-yellow">Ingia (Login)</button>
+    </form>
+
+    <div class="signup-link">
+      Huna akaunti bado? <a href="#">Jisajili Hapa</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Apuoyo SDA Church. Homabay - Rachuonyo.</p>
+</footer>
+
+</body>
+</html>

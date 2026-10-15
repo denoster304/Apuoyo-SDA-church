@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apuoyo SDA Church - Admin Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#f7f8fc;color:#222;display:flex;min-height:100vh}
+
+/* Sidebar */
+.sidebar{width:250px;background:#0b2e6e;color:#fff;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.sidebar h2{font-size:18px;margin-bottom:25px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:10px}
+.sidebar h2 span{color:#ffcc00}
+.nav-links{list-style:none}
+.nav-links li{margin-bottom:10px}
+.nav-links a{color:#cdd6f0;text-decoration:none;font-size:14px;display:block;padding:10px;border-radius:6px;transition:0.2s}
+.nav-links a:hover, .nav-links a.active{background:rgba(255,255,255,0.1);color:#ffcc00;font-weight:600}
+
+/* Main Content */
+.main-content{flex:1;padding:25px;overflow-y:auto}
+.header-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.header-bar h1{color:#0b2e6e;font-size:24px}
+.user-badge{background:#fff;padding:8px 15px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,0.05);font-size:13px;font-weight:600}
+
+/* Stats Grid */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:25px}
+.stat-card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);border-left:4px solid #0b2e6e}
+.stat-card.yellow{border-left-color:#ffcc00}
+.stat-card h4{font-size:12px;color:#666;text-transform:uppercase;margin-bottom:5px}
+.stat-card p{font-size:22px;font-weight:bold;color:#0b2e6e}
+
+/* Tables & Cards */
+.content-card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);margin-bottom:20px}
+.card-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.card-title h3{color:#0b2e6e;font-size:16px}
+
+table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+th, td{padding:12px;border-bottom:1px solid #eee}
+th{background:#f8f9fa;color:#0b2e6e;font-weight:600}
+.status-badge{padding:4px 8px;border-radius:12px;font-size:11px;font-weight:bold}
+.status-success{background:#e6f4ea;color:#137333}
+.status-pending{background:#fef7e0;color:#b06000}
+
+/* Buttons & Inputs */
+.btn{padding:8px 14px;border-radius:6px;border:none;font-weight:600;font-size:13px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-yellow{background:#ffcc00;color:#0b2e6e}
+.btn-blue{background:#0b2e6e;color:#fff}
+.btn-danger{background:#ea4335;color:#fff}
+input, select{padding:8px 12px;border-radius:6px;border:1px solid #ccc;font-size:13px;outline:none}
+
+/* Tab Switching */
+.tab-content{display:none}
+.tab-content.active{display:block}
+</style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div>
+      <h2>APUOYO <span>SDA</span> ADMIN</h2>
+      <ul class="nav-links">
+        <li><a href="#" class="active" onclick="switchTab('dashboard', this)">📊 Muhtasari (Dashboard)</a></li>
+        <li><a href="#" onclick="switchTab('sadaka', this)">💰 Sadaka & Fungu la Kumi</a></li>
+        <li><a href="#" onclick="switchTab('mahubiri', this)">🎙️ Dhibiti Mahubiri</a></li>
+        <li><a href="#" onclick="switchTab('maombi', this)">🙏 Maombi ya Wanachama</a></li>
+      </ul>
+    </div>
+    <a href="login.html" class="btn btn-danger" style="text-align:center">Toka (Logout)</a>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    
+    <div class="header-bar">
+      <h1>Panel ya Uongozi</h1>
+      <div class="user-badge">👤 Admin: Pr. Otieno</div>
+    </div>
+
+    <!-- DASHBOARD TAB -->
+    <div id="dashboard" class="tab-content active">
+      <div class="stats-grid">
+        <div class="stat-card yellow">
+          <h4>Sadaka Wiki Hii</h4>
+          <p>KES 45,200</p>
+        </div>
+        <div class="stat-card">
+          <h4>Fungu la Kumi</h4>
+          <p>KES 128,500</p>
+        </div>
+        <div class="stat-card yellow">
+          <h4>Maombi Mapya</h4>
+          <p>12 Requests</p>
+        </div>
+        <div class="stat-card">
+          <h4>Mahubiri Yaliyowekwa</h4>
+          <p>24 Videos</p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-title">
+          <h3>Miamala ya Hivi Karibuni (M-Pesa)</h3>
+          <button class="btn btn-yellow">Pakua Ripoti (CSV)</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Jina</th>
+              <th>Aina</th>
+              <th>Kiasi</th>
+              <th>M-Pesa Code</th>
+              <th>Tarehe</th>
+              <th>Hali</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Ochieng</td>
+              <td>Fungu la Kumi</td>
+              <td>KES 5,000</td>
+              <td>QFH83J2912</td>
+              <td>12 Oct 2026</td>
+              <td><span class="status-badge status-success">Thabitishwa</span></td>
+            </tr>
+            <tr>
+              <td>Mary Atieno</td>
+              <td>Sadaka ya Kanisa</td>
+              <td>KES 1,200</td>
+              <td>QFH91K8821</td>
+              <td>11 Oct 2026</td>
+              <td><span class="status-badge status-success">Thabitishwa</span></td>
+            </tr>
+            <tr>
+              <td>Anonymous</td>
+              <td>Ujenzi</td>
+              <td>KES 500</td>
+              <td>QFH77P0012</td>
+              <td>10 Oct 2026</td>
+              <td><span class="status-badge status-pending">Inasubiri</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SADAKA TAB -->
+    <div id="sadaka" class="tab-content">
+      <div class="content-card">
+        <div class="card-title">
+          <h3>Kumbukumbu Za Sadaka na Fungu la Kumi</h3>
+          <input type="text" placeholder="Tafuta kwa Jina au Code...">
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tarehe</th>
+              <th>Mtoaji</th>
+              <th>Namba ya Simu</th>
+              <th>Aina ya Sadaka</th>
+              <th>Kiasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>12 Oct 2026</td>
+              <td>John Ochieng</td>
+              <td>0712***567</td>
+              <td>Fungu la Kumi</td>
+              <td>KES 5,000</td>
+            </tr>
+            <tr>
+              <td>11 Oct 2026</td>
+              <td>Grace Achieng</td>
+              <td>0722***890</td>
+              <td>Dorcas / Wanawake</td>
+              <td>KES 2,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MAHUBIRI TAB -->
+    <div id="mahubiri" class="tab-content">
+      <div class="content-card">
+        <div class="card-title">
+          <h3>Ongeza Hubiri Jipya (YouTube)</h3>
+        </div>
+        <div style="display:grid;gap:10px;max-width:500px">
+          <input type="text" placeholder="Kichwa cha Hubiri (Title)">
+          <input type="text" placeholder="Jina la Mchungaji / Mnenaji">
+          <input type="text" placeholder="Link ya YouTube Embed (Src ID)">
+          <button class="btn btn-blue">Hifadhi Hubiri</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAOMBI TAB -->
+    <div id="maombi" class="tab-content">
+      <div class="content-card">
+        <div class="card-title">
+          <h3>Maombi ya Wanachama</h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Jina</th>
+              <th>Ombi la Maombi</th>
+              <th>Tarehe</th>
+              <th>Hatua</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Peter Otieno</td>
+              <td>Ombi la afya njema na kuombea familia.</td>
+              <td>13 Oct 2026</td>
+              <td><button class="btn btn-yellow">Mark as Prayed</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId, element) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      // Deactivate all links
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+      // Show selected tab & set active link
+      document.getElementById(tabId).classList.add('active');
+      element.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
